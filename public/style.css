@@ -1,0 +1,48 @@
+body
+{
+    background-color: rgb(194, 206, 203);
+}
+input
+{
+    color: rgb(70, 124, 168);
+    font-family: monospace;
+    font-size: 20px;
+    font-style: italic;
+    background-color: rgb(136, 139, 137);
+    font-weight: bolder;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+label.Register
+{
+    font-size: 30px;
+    font-style: italic;
+}
+
+input.note
+{
+    color: lightslategrey;
+    font-family: monospace;
+    font-size: 15px;
+    font-style: italic;
+    background-color: rgb(185, 238, 226);
+    font-weight: bolder;
+    text-align: center;
+}
+label.note
+{
+    font-size: 25px;
+    font-style: italic;
+}
+
+input.login
+{
+    color: lightslategrey;
+    font-family: monospace;
+    font-size: 15px;
+    font-style: italic;
+    background-color: rgb(81, 104, 231);
+    font-weight: bolder;
+    text-align: center;
+}
