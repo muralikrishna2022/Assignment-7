@@ -21,22 +21,5 @@ router
     }
   })
 
-.put('/edit', async (req, res) => {
-    try {
-      let noteID = await Note.editnote(req.body);
-      res.send(note);
-    } catch(err) {
-      res.status(401).send({message: err.message})
-    }
-  })
-
-  .delete('/delete', async (req, res) => {
-    try {
-      User.deleteNote(req.body);
-      res.send({success: "We'll Miss You... :("})
-    } catch(err) {
-      res.status(401).send({message: err.message})
-    }
-  })
   
 module.exports = router;
