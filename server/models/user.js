@@ -1,7 +1,7 @@
 const con = require("./db_connect");
 
-// Table Creation 
-async function createTable() {
+
+async function createTable() {     //Table Creation
   let sql=`CREATE TABLE IF NOT EXISTS users (
     userID INT NOT NULL AUTO_INCREMENT,
     userName VARCHAR(255) NOT NULL UNIQUE,
@@ -12,15 +12,15 @@ async function createTable() {
 }
 createTable();
 
-// grabbing all users in database
-async function getAllUsers() {
+
+async function getAllUsers() {   // grabbing all users in database
   const sql = `SELECT * FROM users;`;
   let users = await con.query(sql);
   console.log(users)
 }
 
-// Create  User - Registering
-async function register(user) {
+
+async function register(user) {   // Create  User - Registering
   let cUser = await getUser(user);
   if(cUser.length > 0) throw Error("Username already in use");
 
@@ -32,9 +32,8 @@ async function register(user) {
 }
 
 // Read User -- login user
-async function login(user) { // {userName: "sda", password: "gsdhjsga"}
-  let cUser = await getUser(user); //[{userName: "cathy123", password: "icecream"}]
-  
+async function login(user) { 
+  let cUser = await getUser(user);  
   if(!cUser[0]) throw Error("Username not found");
   if(cUser[0].password !== user.password) throw Error("Password incorrect");
 

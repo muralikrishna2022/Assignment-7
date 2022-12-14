@@ -28,6 +28,21 @@ async function register(note) {
 }
 
 
+async function editNote(note){
+  let sql=`update notes SET note="${note.note}" where noteID=${note.noteID}`;
+
+  await con.query(sql);
+  let updatedNote=await getNote(note);
+
+  return updatedNote[0];
+}
+
+async function deleteNote(note){
+  let sql=`Delete from notes where noteID=${note.noteID}`;
+  await con.query(sql);
+
+}
+
 async function getAllNotes(note) {
   let sql;
 
@@ -54,4 +69,4 @@ function getAllNotes() {
     
   }
 
-module.exports = { getAllNotes, register};
+module.exports = { getAllNotes,editNote,deleteNote,register};
