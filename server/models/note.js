@@ -21,10 +21,10 @@ async function getAllNotes() {
 async function register(note) {
  
   const sql = `INSERT INTO notes (noteID,noteContent,userID)
-    VALUES ("${note}", "${noteContent}", "${userID}"));
+    VALUES ("${note.note}", "${note.noteContent}", "${note.userID}"));
   `
   await con.query(sql);
-  return await login(note);
+  
 }
 
 
