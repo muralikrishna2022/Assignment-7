@@ -60,13 +60,4 @@ async function getAllNotes(note) {
   return await con.query(sql);  
 }
 
-
-
-
-function getAllNotes() {
-
-    return notes;
-    
-  }
-
 module.exports = { getAllNotes,editNote,deleteNote,register};

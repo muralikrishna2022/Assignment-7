@@ -42,6 +42,7 @@ async function login(user) {
 
 // Update User function
 async function editUser(user) {
+  console.log(user)
   let sql = `UPDATE users 
     SET userName = "${user.userName}"
     WHERE userID = ${user.userID}
