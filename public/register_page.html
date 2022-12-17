@@ -4,16 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="style.css">
+    <link type ="text/css" rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav>
-        <a href="register.html">Register</a>
-        <a href="login.html">Login</a>
-        <a href="note.html">Note</a>
-    </nav>
-</header>
     <main>
         <div>
           <button
@@ -27,11 +20,8 @@
         <a href="login_page.html">LOGIN</a>
         <a href="Notes.html">NOTES</a>
       </nav>
-    <form id ="comReg">
-    <label for="first_name">First name:</label>  <input type="text" id="first_name" name="first_name" placeholder="Enter your First Name">
-    <br>
-    <label for="lname">Last name:</label>  <input type="text" id="last_name" name="last_name" placeholder="Enter your Last Name">
-    <br>
+    <form id ="register_page">
+      <p class="error"></p>
     <label for="uname">Username or Email:</label>  <input type="text" id="user_name" name="user_name" placeholder="Enter your Username/Email">
     <br>
     <label for="password">Password:</label>   <input type="password" id="password" name="password" placeholder="Enter your password">
@@ -40,7 +30,7 @@
     </form>
     </main> 
 <section id = "Username" ></section>
-<script src="../public/scripts/index.js"></script>
-<script src="../server/routes/user.js"></script>
+<script type ="module" src="../public/scripts/main.js"></script>
+<script type ="module" src="../public/scripts/register.js"></script>
 </body>
 </html>

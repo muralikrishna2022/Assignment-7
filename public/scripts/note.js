@@ -1,28 +1,30 @@
-import { fetchData, setCurrentUser } from './main.js'
+import { fetchData, getCurrentUser } from './main.js'
 
 // user class
 class User {
-  constructor(userID, noteContent) {
-    this.userID = userID;
-    this.noteContent = noteContent;
+  constructor(noteContent,userID) {
+      this.noteContent = noteContent;
+      this.userID = userID;
   }
 }
 
 // login functionality
 let noteForm = document.getElementById("note_form");
-if(noteForm) noteForm.addEventListener('submit', saveNote);
+if(noteForm) noteForm.addEventListener('submit', save);
 
-function saveNote(e) {
+let user_ = getCurrentUser();
+console.log(user_)
+
+function save(e) {
   e.preventDefault();
+  console.log(user_)
+  let userID = user_.UserID;
+  let noteContent = document.getElementById("comp_note").value;
+  let note = new User(noteContent,userID);
 
-  let userID = document.getElementById("userID").value;
-  let noteContent = document.getElementById("note").value;
-  let note = new User(userID, noteContent);
-
-  fetchData("/notes/insert", note, "POST")
+  fetchData("/notes/register", note, "POST")
   .then((data) => {
-    setCurrentUser(data);
-    window.location.replace = "login.html"
+    window.location.href = "Notes.html"
   })
   .catch((err) => {
     let p = document.querySelector('.error');

@@ -1,6 +1,6 @@
 import { 
     getCurrentUser, fetchData, removeCurrentUser, setCurrentUser
-  } from "./index.js";
+  } from "./main";
   
   let user = getCurrentUser(); 
   if(!user) window.location.href = "login.html";

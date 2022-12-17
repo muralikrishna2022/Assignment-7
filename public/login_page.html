@@ -13,7 +13,8 @@
               style="font-size:20px; display:block; width:fit-content; margin:auto;" 
               id="btn-users">Get All Users</button>
           </div>
-    <form id="comReg">
+    <form id="login_page">
+        <p class="error"></p>
     <label for="uname" class="Login">Username or Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" id="user_name" name="uname" placeholder="Enter your Username/Email" class="Login">
     <br>
@@ -21,9 +22,11 @@
     <input type="password" id="password" name="password" placeholder="Enter your password" class="Login">
     <br>
     <input type="submit" value="Submit">
+    
     </form>
     </main>
     <br>
-    <script src="main.js"></script> 
+    <script type ="module" src="../public/scripts/main.js"></script> 
+    <script type ="module" src="../public/scripts/register.js"></script>
 </body>
 </html>

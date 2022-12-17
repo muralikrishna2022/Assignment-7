@@ -1,17 +1,18 @@
 {
-  "name": "project",
+  "name": "final-project",
   "version": "1.0.0",
-  "description": "computer accessiors",
+  "description": "<p>This is a Note Taking website<br></p>\r <p>Technologies used: <br></p>\r <ol>\r   <li>HTML</li>\r   <li>NodeJs</li>\r   <li>JavaScript</li>\r   <li>CSS</li>\r </ol>\r <br>\r <ul>\r <p>This is Home Page</p>\r </ul>",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Murali Krishna",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

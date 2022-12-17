@@ -1,31 +1,31 @@
 const con = require("./db_connect");
 
-
-async function createTable() {     //Table Creation
+//Table Creation
+async function createTable() {     
   let sql=`CREATE TABLE IF NOT EXISTS users (
-    userID INT NOT NULL AUTO_INCREMENT,
-    userName VARCHAR(255) NOT NULL UNIQUE,
+    UserID INT NOT NULL AUTO_INCREMENT,
+    Username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    CONSTRAINT userPK PRIMARY KEY(userID)
+    CONSTRAINT userPK PRIMARY KEY(UserID)
   ); `
   await con.query(sql);
 }
 createTable();
 
-
-async function getAllUsers() {   // grabbing all users in database
+// grabbing all users in database
+async function getAllUsers() {   
   const sql = `SELECT * FROM users;`;
   let users = await con.query(sql);
   console.log(users)
 }
 
-
-async function register(user) {   // Create  User - Registering
+// Create  User - Registering
+async function register(user) {   
   let cUser = await getUser(user);
   if(cUser.length > 0) throw Error("Username already in use");
 
-  const sql = `INSERT INTO users (userName, password)
-    VALUES ("${user.userName}", "${user.password}");
+  const sql = `INSERT INTO users (Username, password)
+    VALUES ("${user.Username}", "${user.password}");
   `
   await con.query(sql);
   return await login(user);
@@ -42,10 +42,9 @@ async function login(user) {
 
 // Update User function
 async function editUser(user) {
-  console.log(user)
   let sql = `UPDATE users 
-    SET userName = "${user.userName}"
-    WHERE userID = ${user.userID}
+    SET userName = "${user.Username}"
+    WHERE UserID = ${user.UserID}
   `;
 
   await con.query(sql);
@@ -56,7 +55,7 @@ async function editUser(user) {
 // Delete User function
 async function deleteUser(user) {
   let sql = `DELETE FROM users
-    WHERE userID = ${user.userID}
+    WHERE UserID = ${user.UserID}
   `
   await con.query(sql);
 }
@@ -65,15 +64,15 @@ async function deleteUser(user) {
 async function getUser(user) {
   let sql;
 
-  if(user.userID) {
+  if(user.UserID) {
     sql = `
       SELECT * FROM users
-       WHERE userID = ${user.userID}
+       WHERE UserID = ${user.UserID}
     `
   } else {
     sql = `
     SELECT * FROM users 
-      WHERE userName = "${user.userName}"
+      WHERE userName = "${user.Username}"
   `;
   }
   return await con.query(sql);  
