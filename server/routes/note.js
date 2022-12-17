@@ -38,14 +38,4 @@ router
     }
   })
   
-  .put('/edit', async (req, res) => {
-    try {
-      let note = await NoTe.editNote(req.body);
-      res.send({...note})
-    } catch(err) {
-      res.status(401).send({message: err.message});
-    }
-  })
-
-  
 module.exports = router;

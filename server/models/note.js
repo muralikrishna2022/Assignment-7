@@ -20,15 +20,15 @@ async function getAllNotes() {
 
 async function register(note) {
  
-  const sql = `INSERT INTO comments (noteContent,userID)
-    VALUES "(${note.noteContent})", "(${note.userID})";
+  const sql = `INSERT INTO comments (noteContent,UserID)
+    VALUES "(${note.noteContent})", "(${note.UserID})";
   `
   await con.query(sql);
   
 }
 
 async function editNote(note){
-  let sql=`update comments SET noteContent ="${note.noteContent}" where noteID=${note.UserID}`;
+  let sql=`UPDATE comments SET noteContent ="${note.noteContent}" WHERE UserID=${note.UserID}`;
 
   await con.query(sql);
   let updatedNote=await getNote(note);
@@ -37,7 +37,7 @@ async function editNote(note){
 }
 
 async function deleteNote(note){
-  let sql=`Delete from comments where UserID =${note.UserID}`
+  let sql=`DELETE from comments WHERE UserID =${note.UserID}`
   await con.query(sql);
 
 }

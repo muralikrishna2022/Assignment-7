@@ -44,8 +44,8 @@ if(sign_inForm) sign_inForm.addEventListener('submit', login);
 function login(e) {
   e.preventDefault();
 
-  let Username = ((document.getElementById("user_name")||{}).value)||"";
-  let password = ((document.getElementById("password")||{}).value)||"";
+  let Username = ((document.getElementById("user_name")).value)||"";
+  let password = ((document.getElementById("password")).value)||"";
   let user = new User(Username, password);
   
   fetchData("/users/login", user, "POST")

@@ -72,7 +72,7 @@ async function getUser(user) {
   } else {
     sql = `
     SELECT * FROM users 
-      WHERE userName = "${user.Username}"
+      WHERE Username = "${user.Username}"
   `;
   }
   return await con.query(sql);  

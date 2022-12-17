@@ -2,9 +2,9 @@ import { fetchData, getCurrentUser } from './main.js'
 
 // user class
 class User {
-  constructor(noteContent,userID) {
+  constructor(noteContent, UserID) {
       this.noteContent = noteContent;
-      this.userID = userID;
+      this.UserID = UserID;
   }
 }
 
@@ -17,13 +17,14 @@ console.log(user_)
 
 function save(e) {
   e.preventDefault();
-  console.log(user_)
-  let userID = user_.UserID;
+
+  let UserID = user_.UserID;
   let noteContent = document.getElementById("comp_note").value;
-  let note = new User(noteContent,userID);
+  let note = new User(noteContent, UserID);
 
   fetchData("/notes/register", note, "POST")
   .then((data) => {
+    setCurrentUser(data);
     window.location.href = "Notes.html"
   })
   .catch((err) => {
